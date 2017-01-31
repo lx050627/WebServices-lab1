@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<!-- definition of simple elements -->
+<xs:element name="TeamsterName" type="xs:string"/>
+<xs:element name="TeamsterComment" type="xs:string"/>
+<xs:element name="HorseName" type="xs:string"/>
+<xs:element name="HorseComment" type="xs:string"/>
+<xs:element name="RaceNumber" type="xs:integer"/>
+<xs:element name="RaceDistance" type="xs:string"/>
+<xs:element name="RaceComment" type="xs:string"/>
+<xs:element name="EventName" type="xs:string"/>
+<!-- definiion of attributes -->
+<xs:attribute name="status" type="statusType" default="active"/>
+<xs:simpleType name="statusType">
+	<xs:restriction base="xs:string">
+		<xs:enumeration value="active"/>
+		<xs:enumeration value="cancelled"/>
+	</xs:restriction>
+</xs:simpleType>
+<!-- definition of complex elements -->
+<xs:element name="Teamster">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="TeamsterName"/>
+      <xs:element ref="TeamsterComment" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="Horse">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="HorseName"/>
+      <xs:element ref="Teamster"/>
+      <xs:element ref="HorseComment" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute ref="status"/>
+  </xs:complexType>
+</xs:element>
+
+<xs:element name="Race">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="RaceNumber"/>
+      <xs:element ref="RaceDistance"/>
+      <xs:element ref="RaceComment" minOccurs="0"/>
+      <xs:element ref="Horse" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+
+<xs:element name="Event">
+  <xs:complexType>
+    <xs:sequence>
+      <xs:element ref="EventName"/>
+      <xs:element ref="Race" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:element>
+
+</xs:schema>

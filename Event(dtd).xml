@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!DOCTYPE Event [
+ <!ELEMENT Event (EventName,Race*)>
+ <!ELEMENT EventName (#PCDATA)>
+ <!ELEMENT Race (RaceNumber,RaceDistance,RaceComment?,Horse*)>
+ <!ELEMENT RaceNumber (#PCDATA)>
+ <!ELEMENT RaceDistance (#PCDATA)>
+ <!ELEMENT RaceComment (#PCDATA)>
+ <!ELEMENT Horse (HorseName,Teamster,HorseComment?)>
+ <!ELEMENT HorseName (#PCDATA)>
+ <!ELEMENT Teamster (TeamsterName,TeamsterComment?)>
+ <!ELEMENT TeamsterName (#PCDATA)>
+ <!ELEMENT TeamsterComment (#PCDATA)>
+ <!ELEMENT HorseComment (#PCDATA)>
+
+ <!ATTLIST Horse status (active|cancelled) "active">
+
+]>
+
+<Event>
+  <EventName>Race of Middle-Earth</EventName>
+	<Race>
+		<RaceNumber>1</RaceNumber>
+		<RaceDistance>From Minas Morgul to Orthanc</RaceDistance>
+		<RaceComment> Gandalf will probably cheat as always</RaceComment>
+
+		<Horse status="active">
+			<HorseName>Shadowfax</HorseName>
+			<Teamster> 
+				<TeamsterName>Gandalf the White</TeamsterName>
+				<TeamsterComment>Wicked Wizard</TeamsterComment>
+			</Teamster>
+			<HorseComment>Simply The Best</HorseComment>
+		</Horse>
+
+		<Horse status="active">
+			<HorseName>Snowmane</HorseName>
+			<Teamster> 
+				<TeamsterName>Théoden</TeamsterName>
+				<TeamsterComment>King of Rohan</TeamsterComment>
+			</Teamster>
+			<HorseComment></HorseComment>
+		</Horse>
+
+		<Horse status="cancelled">
+			<HorseName>Arod</HorseName>
+			<Teamster> 
+				<TeamsterName>Legolas</TeamsterName>
+				<TeamsterComment>Prince of the Woodland Realm</TeamsterComment>
+			</Teamster>
+			<HorseComment>Pretty quick</HorseComment>
+		</Horse>	
+
+		<Horse status="active">
+			<HorseName>Brego</HorseName>
+			<Teamster> 
+				<TeamsterName>Aragorn</TeamsterName>
+				<TeamsterComment></TeamsterComment>
+			</Teamster>
+			<HorseComment>Half-mad</HorseComment>
+		</Horse>
+	</Race>
+</Event>
